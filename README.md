@@ -1,4 +1,4 @@
-#Introduction
+##Introduction
 
 This is a simple check-in system for tourist guide.
 
@@ -12,10 +12,10 @@ Please use the username and password:
 
 `password`
 
-#Requirements
-System Environment: Java, JDBC MYSQL Connector.
+##Requirements
+System Environment: Java, JDBC MYSQL Connector, MYSQL.
 
-#Structure
+##Structure
 If you want to run this on your machine, you have to modify the database connection settings in all connection related files.
 Detailed Structure:
 
@@ -30,17 +30,9 @@ Detailed Structure:
 `/src/main/webapp/jQuery`: is the jQuery Lib folder.
 
 
-# Questions
+##Questions
 If you have any questions regarding how to **USE** this system. Please contact tourist guide manager Ken.
 
 Any other questions, please contact me.
 
 **My email** `xyq163446@gmail.com`.
-
-The [github issue tracker](https://github.com/petkaantonov/bluebird/issues) is **_only_** for bug reports and feature requests. Anything else, such as questions for help in using the library, should be posted in [StackOverflow](http://stackoverflow.com/questions/tagged/bluebird) under tags `promise` and `bluebird`.
-
-
-
-## Subtitle
-
-Test
