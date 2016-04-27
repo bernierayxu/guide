@@ -1,6 +1,4 @@
-
-
-
+//Important servlet, processes xlsx file and insert into database
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -209,7 +207,7 @@ public class fileUploadServlet extends HttpServlet {
 					*/
 				}
 			}
-			
+
 			/*
 			//BRK+EDI Sheet Work
 			if(sheetName.contains("BRK+EDI")){
@@ -609,7 +607,7 @@ public class fileUploadServlet extends HttpServlet {
 					}
 				}
 			}*/
-			
+
 		}//Loop All Sheets End
 		//Disconnect From Database.
 		try {
@@ -633,7 +631,7 @@ public class fileUploadServlet extends HttpServlet {
 			temp = oName.split("\\\\");
 		}
 		temp = temp[temp.length-1].split("\\.");
-		temp = temp[0].split("-"); 
+		temp = temp[0].split("-");
 		rName = String.format("%s-%s-%s", temp[2], temp[0], temp[1]);
 		return rName;
 	}

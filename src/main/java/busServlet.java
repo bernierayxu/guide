@@ -64,6 +64,7 @@ public class busServlet extends HttpServlet {
 			rs = sm.executeQuery(command);
 			while(rs.next()){
 				String sBus = findBus(rs.getString("bus"),busList);
+				//If not in list, add to lise, otherwise ignore.
 				if(!sBus.equals("already")){
 					busList.add(sBus);
 				}
@@ -72,6 +73,7 @@ public class busServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
+		//Generate A <Select> for that day.
 		finalRes += "<select name=\"busSelect\" id=\"busSelect\">";
 		for(String b : busList){
 			finalRes += "<option value=\"" + b + "\">" + b + "</option>";
@@ -99,6 +101,7 @@ public class busServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 	}
 
+	//Check Duplicate
 	public static String findBus(String bus, ArrayList<String> busList){
 		for(String b : busList){
 			if(b.equals(bus)){

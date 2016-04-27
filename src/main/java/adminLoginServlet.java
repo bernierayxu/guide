@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/adminLoginServlet")
 public class adminLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -40,12 +40,12 @@ public class adminLoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		//Connection Variables
 		Connection con = null;
 		Statement sm = null;
 		ResultSet rs = null;
-		
+
 		//Connect To Server
 		String url = "jdbc:mysql://127.4.100.130:3306/gci4";
 		try{
@@ -59,20 +59,24 @@ public class adminLoginServlet extends HttpServlet {
 		catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}
-		
+
 		//Global Variables
 		String pw = request.getParameter("password");
 		String command = String.format("SELECT password FROM gci4.admin WHERE admin='%s' AND password='%s'", "upload", pw);
+
+		//Initialize Session
 		HttpSession sn = request.getSession();
-		
+
 		try{
 			rs = sm.executeQuery(command);
 			if(rs.next()){
+				//Set Redirect To Upload Function Page
 				sn.setAttribute("adminLogStatus", 1);
 				response.sendRedirect("http://gci4-lltravel.rhcloud.com/upload.jsp");
 				con.close();
 			}
 			else{
+				//Set Wrong Username and Password Mark
 				sn.setAttribute("adminLogStatus", 0);
 				response.sendRedirect("http://gci4-lltravel.rhcloud.com/adminlogin.jsp");
 				con.close();
@@ -81,7 +85,7 @@ public class adminLoginServlet extends HttpServlet {
 		catch(SQLException e){
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

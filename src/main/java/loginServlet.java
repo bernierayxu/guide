@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/loginServlet")
 public class loginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -41,7 +41,7 @@ public class loginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		//Connection Variables.
 		Connection con = null;
 		Statement sm = null;
@@ -58,21 +58,24 @@ public class loginServlet extends HttpServlet {
 		} catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}
-		
-		
-		//Global Variables
+
+
+		//Receive the password
 		String command = String.format("SELECT password FROM gci4.admin WHERE admin='%s'", "ken");
 		String pw = request.getParameter("password");
 		HttpSession sn = request.getSession();
-		
+
 		try {
 			rs = sm.executeQuery(command);
+			//If password is correct
 			if(rs.next()){
 				if(pw.equals(rs.getString("password"))){
+					//Set session for this connection
 					sn.setAttribute("logStatus", 1);
 					response.sendRedirect("http://gci4-lltravel.rhcloud.com/main.jsp");
 				}
 				else{
+					//Set session for this connection (failed)
 					sn.setAttribute("logStatus", 0);
 					response.sendRedirect("http://gci4-lltravel.rhcloud.com/login.jsp");
 				}
@@ -80,7 +83,7 @@ public class loginServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

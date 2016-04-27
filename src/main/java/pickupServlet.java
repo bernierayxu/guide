@@ -1,4 +1,4 @@
-
+//This servlet is for helper check-in page (Uses Locations)
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -114,7 +114,7 @@ public class pickupServlet extends HttpServlet {
 		int tempNot = 0;
 		String finalRes = "";
 		String direct = "";
-		
+
 		//Query To Database.
 		try {
 			rs = sm.executeQuery(command);

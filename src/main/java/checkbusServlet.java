@@ -55,7 +55,7 @@ public class checkbusServlet extends HttpServlet {
 		String status = request.getParameter("status");
 		String command = String.format("UPDATE gci4.businfo SET statush='%s' WHERE id='%s'", status, id);
 
-		//Update To Server
+		//Update Target Bus Status
 		try {
 			sm.executeUpdate(command);
 			con.close();

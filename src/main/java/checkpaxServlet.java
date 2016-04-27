@@ -49,7 +49,7 @@ public class checkpaxServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		//Global Variables
+		//Check customer's first status. (Checked By Helper)
 		String id = request.getParameter("id");
 		String status = request.getParameter("status");
 		String command = String.format("UPDATE gci4.paxinfo SET status='%s' WHERE id='%s'", status, id);
@@ -62,8 +62,6 @@ public class checkpaxServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-
 	}
 
 	/**

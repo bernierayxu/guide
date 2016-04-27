@@ -103,6 +103,8 @@ public class helperBusServlet extends HttpServlet {
 		try{
 			rs = sm.executeQuery(command);
 			int count = 0;
+
+			//Prepare Return Table Display.
 			while(rs.next()){
 				if(count == 0){ res += "<tr>";}
 				if(count == 5) { res += "</tr><tr>";}

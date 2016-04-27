@@ -1,3 +1,4 @@
+//This servlet is for guide chec-in page (Uses Buses)
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -71,6 +72,7 @@ public class paxServlet extends HttpServlet {
 
 
 		topRes += "<table id=\"paxList\">";
+		//Query For the pax information.
 		try {
 			rs = sm.executeQuery(command);
 			while(rs.next()){
@@ -87,13 +89,13 @@ public class paxServlet extends HttpServlet {
 						botRes += "<td><button onclick=\"updatePax('"+rs.getInt("id")+"','"+rs.getString("bus")+"','"+rs.getBoolean("status")+"')\" id=\""+rs.getInt("id")+"Button\" value=\""+rs.getBoolean("statusf")+"\">Not Arrived</button></td>";
 						tempNot += Integer.parseInt(rs.getString("paxnum"));
 					}
-					else{ //Pending
+					else{ //Pending Status
 						botRes += "<tr id=\""+idNum+"\" style=\"background: rgb(255, 255, 102);\">"; //Yellow Pending
 						botRes += "<td><button onclick=\"updatePax('"+rs.getInt("id")+"','"+rs.getString("bus")+"',"+rs.getBoolean("status")+")\" id=\""+rs.getInt("id")+"Button\" value=\""+rs.getBoolean("statusf")+"\">Helper Checked</button></td>";
 						tempNot += Integer.parseInt(rs.getString("paxnum"));
 					}
 				}
-				else{ //Final
+				else{ //Final Status
 					botRes += "<tr id=\""+idNum+"\" style=\"background: rgb(102, 255, 102);\">"; //GREEN Arrived
 					botRes += "<td><button onclick=\"updatePax('"+rs.getInt("id")+"','"+rs.getString("bus")+"',"+rs.getBoolean("status")+")\" id=\""+rs.getInt("id")+"Button\" value=\""+rs.getBoolean("statusf")+"\">Arrived</button></td>";
 					tempArr += Integer.parseInt(rs.getString("paxnum"));

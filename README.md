@@ -13,13 +13,13 @@ Please use the username and password:
 `password`
 
 ##Requirements
-System Environment: Java, JDBC MYSQL Connector, MYSQL.
+System Environment: Java, JDBC, MYSQL. (Don't run this app on your local machine)
 
 ##Structure
 If you want to run this on your machine, you have to modify the database connection settings in all connection related files.
 Detailed Structure:
 
-`/src/main/java`: is the source folder for all Servlets.
+`/src/main/java`: is the source folder for all Servlets (Very important).
 
 `/src/main/webapp`: contains all the jsp files (include index.jsp).
 
@@ -29,6 +29,11 @@ Detailed Structure:
 
 `/src/main/webapp/jQuery`: is the jQuery Lib folder.
 
+##Important Notes
+- No need to backup all the data.
+- No need to pay for Openshift account
+- Login to Openshift account, and you will see the SSH instruction.
+- Ne
 
 ##Questions
 If you have any questions regarding how to **USE** this system. Please contact tourist guide manager Ken.

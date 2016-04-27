@@ -1,3 +1,4 @@
+//class for storing information about the relationship between tour and guide
 public class TourAndGuide {
 	private String tour;
 	private String guide;

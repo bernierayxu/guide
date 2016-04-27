@@ -24,14 +24,12 @@ public class checkpaxfinalServlet extends HttpServlet {
      */
     public checkpaxfinalServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
 		//Connection Variables.
 		Connection con = null;
@@ -49,7 +47,7 @@ public class checkpaxfinalServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		//Global Variables
+		//Setup the final status of a customer.
 		String id = request.getParameter("id");
 		String statusf = request.getParameter("statusf");
 		String command = String.format("UPDATE gci4.paxinfo SET statusf='%s' WHERE id='%s'", statusf, id);
